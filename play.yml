@@ -5,4 +5,13 @@
     yum:
       name: httpd
       state: present
-
+  - name: copy website
+    copy:
+      content: "hello world"
+      dest: /var/www/html/index.html
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+      enabled: true
+   
